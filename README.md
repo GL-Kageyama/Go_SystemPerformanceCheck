@@ -2,7 +2,7 @@
 
 ## Overview
 This sample is used to output logs to measure system performance.  
-Five goroutines are started to find prime numbers, and the goroutines are terminated when the calculation is finished.  
+As a measurement sample, five goroutines are started to find prime numbers, and the goroutine is terminated when the calculation is completed.   
 The system log at the end of each calculation is output.  
 
 ## Library
