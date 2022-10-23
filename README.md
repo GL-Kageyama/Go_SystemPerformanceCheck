@@ -5,6 +5,15 @@ This sample is used to output logs to measure system performance.
 Five goroutines are started to find prime numbers, and the goroutines are terminated when the calculation is finished.  
 The system log at the end of each calculation is output.  
 
+## Library
+The library used is "gopsutil".   
+https://github.com/shirou/gopsutil    
+
+This library can retrieve a variety of information, including CPU and memory.  
+
+Please install as needed.   
+$ go get github.com/shirou/gopsutil/cpu  
+
 ## Code
 ```Go
 // Output system performance
