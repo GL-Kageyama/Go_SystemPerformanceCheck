@@ -1,8 +1,32 @@
 # System Performance Check
 
-## 
+## Overview
+This sample is used to output logs to measure system performance.  
+Five goroutines are started to find prime numbers, and the goroutines are terminated when the calculation is finished.  
+The system log at the end of each calculation is output.  
 
 ## Code
+```Go
+// Output system performance
+func checkPerformance() {
+
+	// CPU Performance
+	ps, _ := cpu.Percent(100*time.Millisecond, false)
+	cpuPercent := int(ps[0])
+  
+	// Memory Performance
+	var ms runtime.MemStats
+	runtime.ReadMemStats(&ms)
+	heapMem := int(toKb(ms.HeapAlloc))
+	sysMem := int(toKb(ms.Sys))
+  
+	// Counting Goroutines
+	goroutineCount := runtime.NumGoroutine()
+  
+	// Log output of system performance
+	fmt.Printf("CPU : %d percent, HeapMemory : %d KB, SystemMemory : %d KB, GoroutineCount : %d \n", cpuPercent, heapMem, sysMem, goroutineCount)
+}
+```
 
 ## Output Sample
 $ go build -o SystemPerformanceCheck SystemPerformanceCheck.go  
